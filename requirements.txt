@@ -1,0 +1,7 @@
+pytube
+pytube3
+pillow
+numpy
+opencv-python
+imageio
+av

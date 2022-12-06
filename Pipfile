@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytube = "*"
+pytube3 = "*"
+pillow = "*"
+numpy = "*"
+opencv-python = "*"
+imageio = "*"
+av = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
