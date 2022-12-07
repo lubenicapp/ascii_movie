@@ -6,6 +6,7 @@ import os
 from poc.poctube import download_video
 from poc.asciify import asciify_image
 import imageio.v3 as iio
+import numpy as np
 from time import time, sleep
 
 parser = argparse.ArgumentParser()
@@ -34,6 +35,12 @@ def play(youtube_link, lines, columns):
 def frame_is_late(start, frame_number, frame_rate):
     return time() - start > frame_number * (1 / frame_rate)
 
+
+def convert_rgb_to_grey(cell):
+    return np.average(cell)
+
+
+vec_rgb_to_grey = np.vectorize(convert_rgb_to_grey)
 
 if __name__ == "__main__":
     terminal_size = os.get_terminal_size()
