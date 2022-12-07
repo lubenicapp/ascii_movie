@@ -15,21 +15,23 @@ args = parser.parse_args()
 
 def play(youtube_link, lines, columns):
     video_path = download_video(youtube_link)
-    print(video_path)
     frame_rate = cv2.VideoCapture(video_path).get(cv2.CAP_PROP_FPS)
 
     frames = iio.imread(video_path, plugin="pyav")
     print(f"{len(frames)} frames to process... ")
 
     start = time()
-    ascii_images = [asciify_image(frame, lines, columns) for frame in frames]
-    end = time()
+    for i, frame in enumerate(frames):
+        if frame_is_late(start, i, frame_rate):
+            continue
+        img = asciify_image(frame, lines, columns)
+        while not frame_is_late(start, i, frame_rate):
+            sleep(1 / (10 * frame_rate))
+        print(img)
 
-    for image in ascii_images:
-        print(image)
-        sleep(1/frame_rate)
-    print(f'duration: {round(end-start)} seconds')
 
+def frame_is_late(start, frame_number, frame_rate):
+    return time() - start > frame_number * (1 / frame_rate)
 
 if __name__ == "__main__":
     terminal_size = os.get_terminal_size()

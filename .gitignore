@@ -1,3 +1,5 @@
 venv
 .idea/
 downloads/
+poc/__pycache__/*
+*.ipynb
