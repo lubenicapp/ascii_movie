@@ -24,6 +24,7 @@ def play(youtube_link, lines, columns):
     for i, frame in enumerate(frames):
         if frame_is_late(start, i, frame_rate):
             continue
+
         img = asciify_image(frame, lines, columns)
         while not frame_is_late(start, i, frame_rate):
             sleep(1 / (10 * frame_rate))
@@ -32,6 +33,7 @@ def play(youtube_link, lines, columns):
 
 def frame_is_late(start, frame_number, frame_rate):
     return time() - start > frame_number * (1 / frame_rate)
+
 
 if __name__ == "__main__":
     terminal_size = os.get_terminal_size()

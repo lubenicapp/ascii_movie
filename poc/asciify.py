@@ -8,16 +8,17 @@ GREY_SCALE = ' .:-_=+*#%@'
 
 STEP = 255 / len(GREY_SCALE)
 
+OFFSET = 15
+
 
 def asciify_image(image: np.array, lines, columns) -> str:
     tile_w, tile_h = image.shape[1]//columns, image.shape[0]//lines
 
     r = ''
-    all_val = set()
     for i in range(lines):
-        for j in range(columns):
+        # absolutely don't understand why is it better centered with this offset
+        for j in range(OFFSET, columns + OFFSET):
             value = round((np.average(image[tile_h*i:tile_h*(i+1), tile_w*j:tile_w*(j+1)])))
-            all_val.add(value)
             char = grey_value_to_char(value)
             r += char
         r += '\n'
