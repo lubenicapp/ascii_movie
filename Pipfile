@@ -11,6 +11,10 @@ numpy = "*"
 opencv-python = "*"
 imageio = "*"
 av = "*"
+playsound = "*"
+moviepy = "*"
+pydub = "*"
+werkzeug = "*"
 
 [dev-packages]
 

@@ -3,8 +3,9 @@
 import argparse
 import cv2
 import os
-from poc.poctube import download_video
+from poc.youtbe_download import download_video
 from poc.asciify import asciify_image
+from poc.sound import play_audio_from_video
 import imageio.v3 as iio
 import numpy as np
 from time import time, sleep
@@ -22,6 +23,7 @@ def play(youtube_link, lines, columns):
     print(f"{len(frames)} frames to process... ")
 
     start = time()
+    play_audio_from_video(video_path)
     for i, frame in enumerate(frames):
         if frame_is_late(start, i, frame_rate):
             continue
