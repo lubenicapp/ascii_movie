@@ -8,6 +8,8 @@ It is extremely inefficient, I advise you try it with a very short video first l
 
 I might improve it later, even make something serious out of it
 
+You can see what it produces here [on my chanel](https://www.youtube.com/channel/UCh4kBiVLsdAyebWo2uBKrWw)
+
 # Installation
 
 install dependencies from Pipfile with something like `pipenv install`, preferably in a virtual env
