@@ -12,6 +12,10 @@ You can see what it produces here [on my chanel](https://www.youtube.com/channel
 
 # Installation
 
+(for ubuntu users)
+
+you need ffmpeg installed
+
 install dependencies from Pipfile with something like `pipenv install`, preferably in a virtual env
 or `pip install -r requirements.txt` (have not tested it)
 
